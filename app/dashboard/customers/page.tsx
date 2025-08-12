@@ -1,27 +1,3 @@
-import { fetchFilteredCustomers } from '@/app/lib/data';
-import CustomersTable from '@/app/ui/customers/table';
-import { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Customers',
-};
-
-export default async function Page({
-  searchParams,
-}: {
-  searchParams?: {
-    query?: string;
-  };
-}) {
-  // Ambil query string jika ada, kalau tidak pakai string kosong
-  const query = searchParams?.query ?? '';
-
-  // Ambil data customers yang sudah difilter
-  const customers = await fetchFilteredCustomers(query);
-
-  return (
-    <main>
-      <CustomersTable customers={customers} />
-    </main>
-  );
+export default function Page() {
+  return <p>Customers Page</p>;
 }

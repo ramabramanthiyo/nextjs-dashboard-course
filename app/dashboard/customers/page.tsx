@@ -6,7 +6,6 @@ export const metadata: Metadata = {
   title: 'Customers',
 };
 
-// PERBAIKAN: Menyesuaikan tipe props untuk Next.js 15+
 export default async function Page({
   searchParams,
 }: {
@@ -14,7 +13,10 @@ export default async function Page({
     query?: string;
   };
 }) {
-  const query = searchParams?.query || '';
+  // Ambil query string jika ada, kalau tidak pakai string kosong
+  const query = searchParams?.query ?? '';
+
+  // Ambil data customers yang sudah difilter
   const customers = await fetchFilteredCustomers(query);
 
   return (

@@ -1,3 +1,9 @@
+import InvoicesTable from '@/app/ui/invoices/table';
+
 export default function Page() {
-  return <p>Invoices Page</p>;
+  return (
+    <main>
+      <InvoicesTable query="" currentPage={1} />
+    </main>
+  );
 }

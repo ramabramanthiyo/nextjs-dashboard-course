@@ -6,14 +6,9 @@ export const metadata: Metadata = {
   title: 'Customers',
 };
 
-export default async function Page(props: {
-  searchParams: Promise<{ query?: string }>;
-}) {
-  // Tunggu sampai searchParams ter-resolve
-  const { query } = await props.searchParams;
-
-  // Ambil data customers sesuai query (kalau undefined, pakai string kosong)
-  const customers = await fetchFilteredCustomers(query ?? '');
+export default async function Page() {
+  // Ambil semua customers tanpa filter query
+  const customers = await fetchFilteredCustomers('');
 
   return (
     <main>
